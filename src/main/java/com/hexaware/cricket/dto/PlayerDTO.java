@@ -33,10 +33,10 @@ public class PlayerDTO {
 	private String teamName;
 	
 	@NotBlank(message = "Country name is required")
+	@Pattern(regexp = "^(India|Australia|England)$", message = "Country name must be India, Australia or England")
 	private String countryName;
 		
 	@NotBlank(message = "Player's description is required")
 	private String description;
-
 
 }
