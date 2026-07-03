@@ -37,7 +37,6 @@ function UpdatePlayer(props) {
 	const [messageType, setMessageType] = useState("info");
 	const [currentId, setCurrentId] = useState(props.editId || null);
 
-	// If editId was passed from AllPlayers, auto-load on first render
 	React.useEffect(() => {
 		if (props.editId) {
 			fetchPlayer(props.editId);
