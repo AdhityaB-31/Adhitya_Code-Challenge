@@ -2,43 +2,35 @@ import React from "react";
 
 function Navbar(props) {
 	return (
-		<nav className="navbar navbar-dark bg-dark">
-			<span className="navbar-brand">Cricket Team Management</span>
-
-			<button
-				className="btn btn-link text-white"
-				onClick={() => props.goToPage("home")}
+		<nav
+			className="navbar navbar-dark bg-dark"
+			style={{ flexWrap: "nowrap", overflowX: "auto", gap: "2px" }}
+		>
+			<span
+				className="navbar-brand"
+				style={{ whiteSpace: "nowrap", fontSize: "0.95rem", marginRight: "4px" }}
 			>
-				Home
-			</button>
+				Cricket Team Management
+			</span>
 
-			<button
-				className="btn btn-link text-white"
-				onClick={() => props.goToPage("all")}
-			>
-				All Players
-			</button>
-
-			<button
-				className="btn btn-link text-white"
-				onClick={() => props.goToPage("add")}
-			>
-				Add Player
-			</button>
-
-			<button
-				className="btn btn-link text-white"
-				onClick={() => props.goToPage("byteam")}
-			>
-				Search by Team
-			</button>
-
-			<button
-				className="btn btn-link text-white"
-				onClick={() => props.goToPage("byrole")}
-			>
-				Search by Role
-			</button>
+			{[
+				{ label: "Home", page: "home" },
+				{ label: "All Players", page: "all" },
+				{ label: "Add Player", page: "add" },
+				{ label: "Update Player", page: "update" },
+				{ label: "Delete Player", page: "delete" },
+				{ label: "Search by Team", page: "byteam" },
+				{ label: "Search by Role", page: "byrole" },
+			].map(({ label, page }) => (
+				<button
+					key={page}
+					className="btn btn-link text-white"
+					style={{ whiteSpace: "nowrap", fontSize: "0.85rem", padding: "4px 8px" }}
+					onClick={() => props.goToPage(page)}
+				>
+					{label}
+				</button>
+			))}
 		</nav>
 	);
 }

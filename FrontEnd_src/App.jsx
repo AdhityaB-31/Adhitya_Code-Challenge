@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AllPlayers from "./pages/AllPlayers";
 import AddPlayer from "./pages/AddPlayer";
+import UpdatePlayer from "./pages/UpdatePlayer";
+import DeletePlayer from "./pages/DeletePlayer";
 import SearchByTeam from "./pages/SearchByTeam";
 import SearchByRole from "./pages/SearchByRole";
 
@@ -28,7 +30,15 @@ function App() {
 		}
 
 		if (page === "edit") {
-			return <AddPlayer goToPage={goToPage} editId={editId} />;
+			return <UpdatePlayer goToPage={goToPage} editId={editId} />;
+		}
+
+		if (page === "update") {
+			return <UpdatePlayer goToPage={goToPage} editId={null} />;
+		}
+
+		if (page === "delete") {
+			return <DeletePlayer goToPage={goToPage} />;
 		}
 
 		if (page === "byteam") {
